@@ -21,7 +21,19 @@ class Response {
 
                 }
             }
+        } else if (error.message.includes("E11000")) {
+            return {
+                code: Enum.HTTP_CODES.CONFLICT,
+                error: {
+                    message: "Alreadty Exists!",
+                    description: "Alreadty Exists!"
+
+                }
+            }
         }
+
+
+
         return {
                 code: Enum.HTTP_CODES.INT_SERVER_ERROR,
                 error: {
